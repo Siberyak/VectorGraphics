@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3AA7934F-420B-420A-A056-BEAB485911B9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Shapes</RootNamespace>
+    <AssemblyName>Shapes</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ProcessorsFactory.cs" />
+    <Compile Include="Shapes\ContractsAndBases\GroupShape.cs" />
+    <Compile Include="Shapes\ContractsAndBases\ImageShape.cs" />
+    <Compile Include="Shapes\ContractsAndBases\ISizedShape.cs" />
+    <Compile Include="Shapes\Extender.cs" />
+    <Compile Include="Shapes\LineShape.cs" />
+    <Compile Include="ViewPort\ActionsRegistrator.cs" />
+    <Compile Include="ViewPort\ActionState.cs" />
+    <Compile Include="2F\Bounds2F.cs" />
+    <Compile Include="Shapes\ContractsAndBases\DrawingItem.cs" />
+    <Compile Include="ViewPort\IInputInfo.cs" />
+    <Compile Include="ViewPort\InputInfoProcessor.cs" />
+    <Compile Include="ViewPort\InputInfoProcessorsCollection.cs" />
+    <Compile Include="ViewPort\IViewPort.cs" />
+    <Compile Include="ViewPort\IViewPortInputAction.cs" />
+    <Compile Include="ViewPort\KeysInfo.cs" />
+    <Compile Include="ViewPort\MouseMoveAction.cs" />
+    <Compile Include="ViewPort\MouseMoveActionInfo.cs" />
+    <Compile Include="ViewPort\MouseOverInputInfoProcessor.cs" />
+    <Compile Include="ViewPort\MoveMouseActionInfo.cs" />
+    <Compile Include="Shapes\BoundsDrawItem.cs" />
+    <Compile Include="Shapes\EllipseShape.cs" />
+    <Compile Include="Shapes\GraphicsPathDrawItem.cs" />
+    <Compile Include="ViewPort\MouseWheelRedirector.cs" />
+    <Compile Include="Shapes\ContractsAndBases\IFocusableShape.cs" />
+    <Compile Include="Shapes\ContractsAndBases\IMovableShape.cs" />
+    <Compile Include="Shapes\ContractsAndBases\IRotatableShape.cs" />
+    <Compile Include="Shapes\ContractsAndBases\IScalableShape.cs" />
+    <Compile Include="Shapes\ContractsAndBases\ISelectableShape.cs" />
+    <Compile Include="Shapes\ContractsAndBases\IShape.cs" />
+    <Compile Include="Shapes\ContractsAndBases\IShapesProvider.cs" />
+    <Compile Include="Shapes\ContractsAndBases\PathedShape.cs" />
+    <Compile Include="Shapes\PointDrawItem.cs" />
+    <Compile Include="Shapes\PointShape.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Shapes\RectangleShape.cs" />
+    <Compile Include="Shapes\ContractsAndBases\Shape.cs" />
+    <Compile Include="Shapes\ShapesProvider.cs" />
+    <Compile Include="Shapes\ContractsAndBases\SizedShape.cs" />
+    <Compile Include="SuspendHelper.cs" />
+    <Compile Include="Tags\TagsStorage.cs" />
+    <Compile Include="UndoRedo\UndoRedoEngine.cs" />
+    <Compile Include="UndoRedo\UndoRedoScope.cs" />
+    <Compile Include="ViewPort.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ViewPort.Designer.cs">
+      <DependentUpon>ViewPort.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Variable.cs" />
+    <Compile Include="2F\Vector2F.cs" />
+    <Compile Include="ViewPortBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ViewPortBase.Designer.cs">
+      <DependentUpon>ViewPortBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewPort\SelectionInputInfoProcessor.cs" />
+    <Compile Include="ViewPort\ViewPortEventType.cs" />
+    <Compile Include="ViewPort\ViewPortInputAction.cs" />
+    <Compile Include="ViewPort\ViewPortInputInfoProcessor.cs" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ViewPort.resx">
+      <DependentUpon>ViewPort.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
