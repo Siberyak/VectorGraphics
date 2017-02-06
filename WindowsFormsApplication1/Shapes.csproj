@@ -55,6 +55,7 @@
     <Compile Include="Shapes\ContractsAndBases\ImageShape.cs" />
     <Compile Include="Shapes\ContractsAndBases\ISizedShape.cs" />
     <Compile Include="Shapes\Extender.cs" />
+    <Compile Include="Shapes\LabelShape.cs" />
     <Compile Include="Shapes\LineShape.cs" />
     <Compile Include="ViewPort\ActionsRegistrator.cs" />
     <Compile Include="ViewPort\ActionState.cs" />

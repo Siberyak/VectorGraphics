@@ -22,7 +22,7 @@ namespace Shapes
 
     public class TextDrawItem : DrawingItem
     {
-        public TextDrawItem(LableShape shape) : base(shape)
+        public TextDrawItem(LabelShape shape) : base(shape)
         {
         }
 
@@ -32,7 +32,7 @@ namespace Shapes
 
         public override void Draw(IViewPort viewPort)
         {
-            var labelShape = (LableShape) Shape;
+            var labelShape = (LabelShape) Shape;
             viewPort.Graphics.DrawString(labelShape.Text, labelShape.Font ?? Control.DefaultFont, Brushes.Black, labelShape.CenterLocation);
         }
     }

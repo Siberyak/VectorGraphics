@@ -72,6 +72,8 @@ namespace DataLayer
                 }
             }
 
+            public TOffsetUnit Place => Graph.Environment.Aggregate(Right.ToLeft, Graph.Environment.Negate(ToRight));
+
             public bool Critical => Left.Right == Right && Left == Right.Left;
 
             public IEnumerable<Dependency> Predecessors => BackReferences.OfType<Dependency>();
@@ -143,7 +145,7 @@ namespace DataLayer
 
             public override string ToString()
             {
-                return $"[{Data}] ({ToLeft}:{ToRight})";
+                return $"[{Data}] <{Place}> ({ToLeft}:{ToRight})";
             }
         }
 

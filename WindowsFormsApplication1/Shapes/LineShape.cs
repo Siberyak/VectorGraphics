@@ -1,6 +1,4 @@
 using System;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Drawing.Drawing2D;
 
 namespace Shapes
@@ -32,8 +30,14 @@ namespace Shapes
         {
             var from = From?.Invoke() ?? Vector2F.Zerro;
             var to = To?.Invoke() ?? Vector2F.Zerro;
-            path.AddLine(from, to);
+
+            ApplyToPath(path, @from, to);
             path.CloseAllFigures();
+        }
+
+        protected virtual void ApplyToPath(GraphicsPath path, Vector2F from, Vector2F to)
+        {
+            path.AddLine(from, to);
         }
 
         public override bool Contains(Vector2F point)
@@ -43,32 +47,6 @@ namespace Shapes
         }
 
         public override bool Contains(Bounds2F bounds)
-        {
-            return false;
-        }
-    }
-
-    public class LableShape : Shape
-    {
-        public string Text;
-        public Font Font;
-
-        protected override IEnumerable<DrawingItem> GetItems()
-        {
-            return new[] {new TextDrawItem(this),};
-        }
-
-        public override bool Contains(Vector2F point)
-        {
-            return false;
-        }
-
-        public override bool Contains(Bounds2F bounds)
-        {
-            return false;
-        }
-
-        public override bool IntersectsWith(Bounds2F bounds)
         {
             return false;
         }

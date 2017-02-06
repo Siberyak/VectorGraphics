@@ -180,13 +180,13 @@ namespace DataLayer
             }
         }
 
-        private TOffsetUnit? Negate(TOffsetUnit value)
+        private TOffsetUnit Negate(TOffsetUnit value)
         {
             return _negateOffset(value);
         }
         private TOffsetUnit? Negate(TOffsetUnit? value)
         {
-            return value.HasValue ? Negate(value.Value) : null;
+            return value.HasValue ? Negate(value.Value) : default(TOffsetUnit?);
         }
 
         public IEnumerable<T> Nodes<T>(Func<T, bool> predicate = null) 
