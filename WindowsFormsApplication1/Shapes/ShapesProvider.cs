@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,12 +37,36 @@ namespace Shapes
             Items.Remove(shape);
         }
 
+        public void Clear()
+        {
+            Items.Clear();
+        }
+
         public void Add(IShape shape)
         {
             if (shape == null || Items.Contains(shape))
                 return;
 
+            Subscribe(shape);
+
             Items.Add(shape);
+        }
+
+        private void Subscribe(IShape shape)
+        {
+            SubscribeRo(shape, A);
+        }
+
+        private void A(IShape shape, float oldRotation)
+        {}
+
+        void SubscribeRo(IShape shape, RotationChangedEventHandler a)
+        {
+            var rotatableShape = shape as IRotatableShape;
+            if (rotatableShape == null)
+                return;
+
+            rotatableShape.RotationChanged += a;
         }
 
         public IShape FirstOrDefault(Vector2F point)
@@ -67,6 +92,20 @@ namespace Shapes
         public IEnumerable<IShape> IntersectsWith(Bounds2F bounds)
         {
             return Items.Where(x => x.IntersectsWith(bounds)).ToArray();
+        }
+
+        public LineShape AddLine(Vector2F from, Vector2F to)
+        {
+            var lineShape = LineShape.New(from, to);
+            Items.Add(lineShape);
+            return lineShape;
+        }
+
+        public LineShape AddLine(Func<Vector2F> from, Func<Vector2F> to)
+        {
+            var lineShape = LineShape.New(from, to);
+            Items.Add(lineShape);
+            return lineShape;
         }
     }
 }

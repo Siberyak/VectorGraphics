@@ -58,19 +58,8 @@ namespace Shapes
 
             path = ScaleByViewPort(path, viewPort.Zoom);
 
-
             viewPort.Graphics.DrawPath(_pen, path);
-
-            //if(!selected)
-            return;
-
-            path = new GraphicsPath(path.PathData.Points, path.PathData.Types);
-
-            var p1 = new Pen(Color.SlateGray, _pen.Width + 3);
-
-            path.Widen(p1);
-            p1.Width = 1;
-            viewPort.Graphics.DrawPath(p1, path);
+            
         }
 
         protected internal static GraphicsPath ScaleByViewPort(GraphicsPath path, float scale)

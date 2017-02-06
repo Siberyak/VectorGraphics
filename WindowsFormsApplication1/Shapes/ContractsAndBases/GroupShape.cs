@@ -8,6 +8,9 @@ namespace Shapes
     public class GroupShape : IShape, IShapesProvider//, ISelectableShape, IMovableShape
     {
         protected readonly IShapesProvider Provider = new ShapesProvider();
+        private Vector2F _centerLocation;
+        private float _rotation;
+        private Vector2F _aspectRatio;
 
         public GroupShape()
         {
@@ -15,7 +18,24 @@ namespace Shapes
 
         Vector2F IShape.Location
         {
-            get { throw new NotImplementedException(); }
+            get { return CenterLocation; }
+        }
+
+        public virtual Vector2F CenterLocation
+        {
+            get { return _centerLocation; }
+            set
+            {
+                var oldValue = _centerLocation;
+                _centerLocation = value;
+                if (_centerLocation != oldValue)
+                    OnLocationChanged(oldValue);
+            }
+        }
+
+        protected virtual void OnLocationChanged(Vector2F oldValue)
+        {
+            //Provider.ResetItems();
         }
 
         void IShape.Draw(IViewPort viewPort)
@@ -62,6 +82,11 @@ namespace Shapes
         bool IShapesProvider.Contains(IShape shape)
         {
             return Provider.Contains(shape);
+        }
+
+        void IShapesProvider.Clear()
+        {
+            Provider.Clear();
         }
 
         IShape IShapesProvider.FirstOrDefault(Vector2F point)

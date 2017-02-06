@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Shapes
@@ -226,13 +227,13 @@ namespace Shapes
 
     public static class InputInfoExtender
     {
-        public static IShape Shape(this IInputInfo x)
+        public static IShape Shape(this IInputInfo x, Func<IShape, bool> predicate = null)
         {
             if (!x.ViewPortPoint.HasValue)
                 return null;
 
             var point = x.ViewPortPoint.Value;
-            var shape = x.ViewPort.Shapes.LastOrDefault(point);
+            var shape = x.ViewPort.Shapes.LastOrDefault(s => s.Contains(point) && predicate?.Invoke(s) == true);
             return shape;
         }
     }

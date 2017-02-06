@@ -53,7 +53,6 @@ namespace Shapes
             return viewPortPoint;
         }
 
-
         protected virtual void OnLocationChanged(Vector2F oldValue)
         {
             ResetItems();
@@ -92,9 +91,12 @@ namespace Shapes
             _rotation += angle;
         }
 
+        public event RotationChangedEventHandler RotationChanged;
+
         protected virtual void OnRotationChanged(float oldValue)
         {
             ResetItems();
+            RotationChanged?.Invoke(this, oldValue);
         }
 
         public Vector2F AspectRatio
@@ -123,10 +125,7 @@ namespace Shapes
         public abstract bool Contains(Vector2F point);
         public abstract bool Contains(Bounds2F bounds);
         public abstract bool IntersectsWith(Bounds2F bounds);
-        protected IEnumerable<DrawingItem> Items
-        {
-            get { return _items ?? (_items = GetItems()); }
-        }
+        protected IEnumerable<DrawingItem> Items => _items ?? (_items = GetItems());
 
         public virtual void Draw(IViewPort viewPort)
         {

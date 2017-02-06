@@ -101,10 +101,7 @@ namespace Shapes
                 : path.IsOutlineVisible(point, Pen);
         }
 
-        public bool AllowSelect
-        {
-            get { return true; }
-        }
+        public virtual bool AllowSelect { get; set; } = true;
 
         public override Vector2F CenterLocation
         {
@@ -134,6 +131,42 @@ namespace Shapes
             base.CenterLocation += offset;
         }
 
+        public event LocationChangedEventHandler LocationChanged;
+        public event OffsetChangedEventHandler OffsetChanged;
+
+        public void Su(OffsetChangedEventHandler eh)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Su(LocationChangedEventHandler eh)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Unsu(OffsetChangedEventHandler eh)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Unsu(LocationChangedEventHandler eh)
+        {
+            throw new NotImplementedException();
+        }
+
+
+        protected override void OnLocationChanged(Vector2F oldValue)
+        {
+            LocationChanged?.Invoke(this, oldValue);
+
+            base.OnLocationChanged(oldValue);
+        }
+
+        protected override void OnRotationChanged(float oldValue)
+        {
+            base.OnRotationChanged(oldValue);
+        }
+
         public override bool Contains(Bounds2F bounds)
         {
             if (IsSolid)
@@ -154,4 +187,5 @@ namespace Shapes
             return new Region(GetPath(this)).IsVisible(bounds);
         }
     }
+
 }

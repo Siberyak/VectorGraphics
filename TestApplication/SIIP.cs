@@ -43,7 +43,7 @@ namespace TestApplication
         {
             foreach (var shape in Selection.OfType<IMovableShape>())
             {
-                shape.ApplyMove();
+                //shape.ApplyMove();
             }
 
             return _moveInfo.Stop(info);

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shapes", "WindowsFormsApplication1\Shapes.csproj", "{3AA7934F-420B-420A-A056-BEAB485911B9}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3.Viewer", "D3.Viewer\D3.Viewer.csproj", "{D9D245BA-EE82-4EEA-B7DE-072298D992CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DnD.Research", "DnD.Research\DnD.Research.csproj", "{DD0513FA-36FD-48FA-8C27-AC028F041660}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph.Viewer", "Graph.Viewer\Graph.Viewer.csproj", "{D987FF70-8C95-404D-B311-C54E216FBC45}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{DD0513FA-36FD-48FA-8C27-AC028F041660}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DD0513FA-36FD-48FA-8C27-AC028F041660}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DD0513FA-36FD-48FA-8C27-AC028F041660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D987FF70-8C95-404D-B311-C54E216FBC45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D987FF70-8C95-404D-B311-C54E216FBC45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D987FF70-8C95-404D-B311-C54E216FBC45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D987FF70-8C95-404D-B311-C54E216FBC45}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

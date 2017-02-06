@@ -397,11 +397,16 @@ namespace Shapes
         {
             if (!DesignMode)
                 DoDraw(e);
+            else
+                DrawDesignTime(e);
 
             base.OnPaint(e);
         }
 
-
+        protected virtual void DrawDesignTime(PaintEventArgs e)
+        {
+            e.Graphics.DrawRectangle(new Pen(Color.DarkOrchid) {DashStyle = DashStyle.Dot}, new Rectangle(Point.Empty, Size - new Size(1,1)) );
+        }
 
         #region Draw
 

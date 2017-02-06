@@ -328,7 +328,7 @@ namespace Shapes
         private bool ClickShape(IInputInfo x)
         {
             x.Completed = true;
-            var shape = x.Shape();
+            var shape = x.Shape(s => AllowSelect(s));
 
             if (IsSelectionMode)
             {
@@ -406,8 +406,8 @@ namespace Shapes
                 return true;
 
 
-            var shape = x.ViewPort.Shapes.LastOrDefault(point);
-            return checkShape(shape);
+            var shape = x.ViewPort.Shapes.LastOrDefault(s => s.Contains(point) && checkShape(s));
+            return shape != null;
         }
     }
 
